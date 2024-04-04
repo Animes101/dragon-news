@@ -1,8 +1,12 @@
 
 
 import BrakingNews from "../components/BrakingNews"
+import CenterSection from "../components/CenterSection"
 import Header from "../components/Header"
+import LeftSection from "../components/LeftSection"
 import Navbar from "../components/Navbar"
+import RightSection from "../components/RightSection"
+
 
 
 const Home = () => {
@@ -12,9 +16,9 @@ const Home = () => {
     <BrakingNews />
     <Navbar />
     <div className="grid grid-cols-1 md:grid-cols-4">
-      <div>1</div>
-      <div className="col-span-2">2</div>
-      <div>2</div>
+      <div><LeftSection /></div>
+      <div className="col-span-2"><CenterSection /></div>
+      <div><RightSection /></div>
     </div>
     
     </div>

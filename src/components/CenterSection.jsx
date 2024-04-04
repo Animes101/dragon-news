@@ -1,0 +1,9 @@
+
+
+const CenterSection = () => {
+  return (
+    <div>CenterSection</div>
+  )
+}
+
+export default CenterSection
