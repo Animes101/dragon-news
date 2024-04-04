@@ -44,7 +44,7 @@ const NewsCards = ({ news }) => {
         <div className="space-y-2">
           <h2 className="text-slate-800 font-medium md:text-xl sm:text-lg ">
             {details.slice(0, 100)}{" "}
-            <Link className="text-red-300" to={`/carddetails/${_id}`}>
+            <Link className="text-red-300" to={`/details/${_id}`}>
               Read More
             </Link>
           </h2>

@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Navbar = () => {
   return (
     <nav className="flex items-center justify-between text-black px-4 py-2 ">
@@ -5,7 +7,7 @@ const Navbar = () => {
         <h2 className="text-black">Logo</h2>
       </div>
       <ul className="flex items-center justify-between gap-6 text-slate-900">
-        <li className="cursor-pointer text-base  rounded-full  px-6 py-2 ">Home</li>
+        <Link to='/' className="cursor-pointer text-base  rounded-full  px-6 py-2 ">Home</Link>
         <li className="cursor-pointer text-base  rounded-full px-6 py-2 ">Services</li>
         <li className="cursor-pointer  text-base rounded-full px-6 py-2">About</li>
       </ul>
@@ -65,7 +67,7 @@ const Navbar = () => {
             </svg>
           </span>
         </div>
-        <button className="group relative flex w-36 text-base items-center rounded-lg border-2 border-sky-400 p-4 text-sky-300">
+        <Link to={`/login`} className="group relative flex w-36 text-base items-center rounded-lg border-2 border-sky-400 p-4 text-sky-300">
           <span>Login</span>
           <span className="absolute right-3 box-content flex w-1/6 justify-center rounded-md bg-sky-400 duration-300 group-hover:w-5/6">
             <svg
@@ -87,7 +89,7 @@ const Navbar = () => {
               </g>
             </svg>
           </span>
-        </button>
+        </Link>
       </div>
     </nav>
   );
