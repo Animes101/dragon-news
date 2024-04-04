@@ -3,6 +3,7 @@ import { FaGithub } from "react-icons/fa";
 import { FaFacebookF } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
+
 import qz1 from '../assets/qZone1.png';
 import qz2 from '../assets/qZone2.png';
 import qz3 from '../assets/qZone3.png';
@@ -10,10 +11,10 @@ import qz3 from '../assets/qZone3.png';
 const RightSection = () => {
 
   return (
-    <div>
+    <div className="space-y-5">
       {/* login area */}
-      <div className="border border-gray-300">
-        <h1 className="font-bold text-base">Login Width</h1>
+      <div className="">
+        <h1 className="font-bold text-xl">Login Width</h1>
 
         <div className=" flex flex-col items-center justify-center space-y-4">
           <div className="flex border border-gray-300 p-3 rounded-md hover:text-green-400 gap-x-3">
@@ -59,7 +60,7 @@ const RightSection = () => {
       </div>
       {/* Q-Zone */}
 
-      <div className="flex justify-center flex-col">
+      <div className="flex justify-center bg-[#F3F3F3] flex-col">
         <img src={qz1} alt="" />
         <img src={qz2} alt="" />
         <img src={qz3} alt="" />

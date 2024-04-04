@@ -15,7 +15,7 @@ const Home = () => {
     <Header />
     <BrakingNews />
     <Navbar />
-    <div className="grid grid-cols-1 md:grid-cols-4">
+    <div className="grid grid-cols-1 gap-3 md:grid-cols-4">
       <div><LeftSection /></div>
       <div className="col-span-2"><CenterSection /></div>
       <div><RightSection /></div>
