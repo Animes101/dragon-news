@@ -1,15 +1,41 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const Navbar = () => {
+  const { user, logOut } = useContext(AuthContext);
+
+  const handleLogout = () => {
+    logOut()
+    .then(result=>{
+
+      console.log(result.user)
+      console.log('user log out')
+    })
+    .catch(err=>{
+      console.log(err.message)
+    })
+  };
+
+  console.log(user);
   return (
     <nav className="flex items-center justify-between text-black px-4 py-2 ">
       <div className="scale-100 rounded-2xl px-3 py-2 text-xl font-semibold text-white transition-all duration-200 hover:scale-110">
         <h2 className="text-black">Logo</h2>
       </div>
       <ul className="flex items-center justify-between gap-6 text-slate-900">
-        <Link to='/' className="cursor-pointer text-base  rounded-full  px-6 py-2 ">Home</Link>
-        <li className="cursor-pointer text-base  rounded-full px-6 py-2 ">Services</li>
-        <li className="cursor-pointer  text-base rounded-full px-6 py-2">About</li>
+        <Link
+          to="/"
+          className="cursor-pointer text-base  rounded-full  px-6 py-2 "
+        >
+          Home
+        </Link>
+        <li className="cursor-pointer text-base  rounded-full px-6 py-2 ">
+          Services
+        </li>
+        <li className="cursor-pointer  text-base rounded-full px-6 py-2">
+          About
+        </li>
       </ul>
       <div className="flex ">
         <div className="relative group">
@@ -67,29 +93,11 @@ const Navbar = () => {
             </svg>
           </span>
         </div>
-        <Link to={`/login`} className="group relative flex w-36 text-base items-center rounded-lg border-2 border-sky-400 p-4 text-sky-300">
-          <span>Login</span>
-          <span className="absolute right-3 box-content flex w-1/6 justify-center rounded-md bg-sky-400 duration-300 group-hover:w-5/6">
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              className="w-10"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <g strokeWidth="0"></g>
-              <g strokeLinecap="round" strokeLinejoin="round"></g>
-              <g>
-                <path
-                  d="M4 12H20M20 12L14 6M20 12L14 18"
-                  stroke="#fff"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                ></path>
-              </g>
-            </svg>
-          </span>
-        </Link>
+        {user ? (
+          <button onClick={handleLogout}>Logout</button>
+        ) : (
+          <Link to={`/login`} className="">Login</Link>
+        )}
       </div>
     </nav>
   );

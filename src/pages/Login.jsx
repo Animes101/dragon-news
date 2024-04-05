@@ -1,7 +1,32 @@
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
+import { useContext } from "react";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const Login = () => {
+
+  const {loginUser}=useContext(AuthContext)
+
+  const navigate =useNavigate();
+
+  const handleLogin=(e)=>{
+    e.preventDefault();
+
+    const email=e.target.email.value;
+    const password=e.target.password.value;
+
+    console.log(email,password)
+    //login user
+
+    loginUser(email,password)
+    .then(result=>{
+      console.log(result.user)
+    })
+    .catch(err=>{
+      console.log(err.message)
+    })
+
+  }
   return (
     <div>
       <Navbar />
@@ -11,15 +36,15 @@ const Login = () => {
           Login your account
         </h1>
         {/* Input fields and the form started */}
-        <form action="" className="space-y-6">
+        <form onSubmit={handleLogin} action="" className="space-y-6">
           <div className="space-y-2 text-sm">
             <label htmlFor="username" className="block ">
-              Your name
+              Your email
             </label>
             <input
-              type="text"
-              name="username"
-              id="username"
+              type="email"
+              name="email"
+              id="eamil"
               placeholder="Username"
               className="w-full px-4 py-3 rounded-md border border-indigo-300 focus:outline-none focus:ring  "
             />
@@ -42,7 +67,7 @@ const Login = () => {
             </div>
           </div>
           {/* Sign in Button */}
-          <button className="text-lg rounded-xl relative p-[10px] block w-full bg-indigo-600 text-white border-y-4 duration-500 overflow-hidden focus:border-indigo-500 z-50 group">
+          <button type="submit" className="text-lg rounded-xl relative p-[10px] block w-full bg-indigo-600 text-white border-y-4 duration-500 overflow-hidden focus:border-indigo-500 z-50 group">
             Log In
             <span className="absolute opacity-0 group-hover:opacity-100 duration-100 group-hover:duration-1000 ease-out flex justify-center inset-0 items-center z-10 text-white">
               Let&apos;s go
