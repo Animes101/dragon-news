@@ -11,6 +11,7 @@ const AuthProvider = ({children}) => {
     const [loading ,setLoading]=useState(true);
 //create user width email or password
   const createUserEmailPassword=(email,password)=>{
+    setLoading(true)
 
         return createUserWithEmailAndPassword(auth, email, password)
     }
@@ -33,6 +34,7 @@ const AuthProvider = ({children}) => {
     const authInfo={user,createUserEmailPassword,loginUser,logOut ,loading}
 
 
+    console.log(loading);
     //on auth state change
 
     useEffect(()=>{
@@ -66,6 +68,6 @@ const AuthProvider = ({children}) => {
 
 export default AuthProvider
 
-AuthProvider.prototype={
+AuthProvider.propTypes={
     children:PropTypes.node,
 }

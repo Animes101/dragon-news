@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 const NewsDetails = () => {
 
 
-    const id=useParams();
+    // const id=useParams();
 
     const [newes ,setNewes]=useState([]);
 

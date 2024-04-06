@@ -1,4 +1,4 @@
-import { Link,useNavigate } from "react-router-dom";
+import { Link,useNavigate ,useLocation} from "react-router-dom";
 import Navbar from "../components/Navbar";
 import { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
@@ -6,6 +6,8 @@ import { AuthContext } from "../Provider/AuthProvider";
 const Login = () => {
 
   const {loginUser}=useContext(AuthContext)
+
+  const location=useLocation();
 
   const navigate =useNavigate();
 
@@ -21,6 +23,10 @@ const Login = () => {
     loginUser(email,password)
     .then(result=>{
       console.log(result.user)
+
+      navigate(location?.state ? location.state : '/')
+
+      
     })
     .catch(err=>{
       console.log(err.message)

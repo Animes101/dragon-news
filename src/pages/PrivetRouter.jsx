@@ -19,7 +19,7 @@ const PrivetRouter = ({children}) => {
     if(user){
         return children
     }
-  return  <Navigate to='/login' state={loading.pathname}></Navigate>
+  return  <Navigate to='/login' state={location.pathname}></Navigate>
 }
 
 export default PrivetRouter
